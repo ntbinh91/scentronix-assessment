@@ -1,9 +1,12 @@
 import { Container, Typography } from '@mui/material';
+import React from 'react';
 
-export default function Home() {
+function LearnPage() {
   return (
     <Container sx={{ padding: 6, textAlign: 'center' }}>
-      <Typography variant="h2">This is Shop page</Typography>
+      <Typography variant="h2">This is Blog page</Typography>
     </Container>
   );
 }
+
+export default LearnPage;
