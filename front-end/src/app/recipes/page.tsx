@@ -8,6 +8,9 @@ import printIcon from '@/assets/images/print.svg';
 import recipeImage from '@/assets/images/demo/whole-grain-banana-bread.webp';
 import Image from 'next/image';
 import AddIcon from '@mui/icons-material/Add';
+import { Recipe } from '@/types/recipe.types';
+import { Metadata } from 'next';
+import { APT_ENDPOINTS } from '@/api/apiEndpoint.constants';
 
 const BREADCRUMB_ITEMS: BreadcrumbItem[] = [
   { label: 'Recipes', href: '/recipes' },
@@ -15,7 +18,18 @@ const BREADCRUMB_ITEMS: BreadcrumbItem[] = [
   { label: 'Quick bread', href: '/recipes/bread/quick-bread' },
 ];
 
-function RecipesPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const recipe: Recipe = await fetch(APT_ENDPOINTS.RECIPE_DETAIL).then(res => res.json());
+
+  return {
+    title: recipe.name,
+    description: recipe.description,
+  };
+}
+
+async function RecipesPage() {
+  const recipe: Recipe = await fetch(APT_ENDPOINTS.RECIPE_DETAIL).then(res => res.json());
+
   return (
     <Container sx={{ padding: 6 }}>
       <Grid2 container spacing={5}>
@@ -26,14 +40,11 @@ function RecipesPage() {
         <Grid2 size={{ xs: 12, md: 6 }}>
           <AppBreadcrumbs items={BREADCRUMB_ITEMS} />
           <Typography variant="h1" mt={2} mb={{ xs: 0, md: 10 }} fontSize={40} fontWeight="bold">
-            Whole-Grain Banana Bread
+            {recipe.name}
           </Typography>
 
           <Typography mt={2} mb={{ xs: 3, md: 4 }} color="text.secondary">
-            {`This one-bowl banana bread — our 2018 Recipe of the Year — uses the simplest ingredients, but is incredibly
-            moist and flavorful. While the recipe calls for a 50/50 mix of flours (all-purpose and whole wheat), we
-            often make the bread 100% whole wheat, and honestly? No one can tell, it's that good! And not only is this
-            bread delicious — it's versatile.`}
+            {recipe.description}
           </Typography>
 
           <Stack direction="row" gap={2} alignItems="center">
@@ -41,17 +52,17 @@ function RecipesPage() {
             <Grid2 container spacing={2} flex={1}>
               <Stack flex={1}>
                 <Typography fontSize={14}>PREP</Typography>
-                <Typography fontSize="medium">10 mins</Typography>
+                <Typography fontSize="medium">{recipe.prep}</Typography>
               </Stack>
 
               <Stack flex={1}>
                 <Typography fontSize={14}>BAKE</Typography>
-                <Typography fontSize="medium">1 hr to 1hr 15 mins</Typography>
+                <Typography fontSize="medium">{recipe.bake}</Typography>
               </Stack>
 
               <Stack flex={1}>
                 <Typography fontSize={14}>TOTAL</Typography>
-                <Typography fontSize="medium">1 hr 10 mins</Typography>
+                <Typography fontSize="medium">{recipe.total}</Typography>
               </Stack>
             </Grid2>
           </Stack>
@@ -63,7 +74,7 @@ function RecipesPage() {
             <Stack direction="row" gap={2} alignItems="center" flex={1}>
               <Stack flex={1}>
                 <Typography fontSize={14}>YIELD</Typography>
-                <Typography fontSize="medium">1 loaf, 12 generous servings</Typography>
+                <Typography fontSize="medium">{recipe.yield}</Typography>
               </Stack>
 
               <Stack gap={1} direction={{ xs: 'column', md: 'row' }}>
