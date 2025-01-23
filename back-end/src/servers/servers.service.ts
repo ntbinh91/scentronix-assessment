@@ -24,7 +24,6 @@ export class ServersService {
   async findServer() {
     // Get servers list
     const servers = await this.getServers();
-    console.log('xxx', servers);
 
     // Check server status concurrently
     const serverChecks = servers.map(
@@ -50,7 +49,7 @@ export class ServersService {
     const onlineServers = serverCheckResults.filter((server) => !!server);
 
     if (onlineServers.length === 0) {
-      throw new HttpException('No servers are online', 503);
+      throw new HttpException('No servers are online', 404);
     }
 
     // Find the server with the lowest priority
