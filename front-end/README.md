@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## Getting Started
+# Scentronix - Full-stack assignment
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+A running demo of the site here: [DEMO](https://scentronix-assessment-rho.vercel.app/recipes)
+
+## Table of Contents
+
+- [1. General Information](#1-general-information)
+- [2. Main Features](#2-main-features)
+- [3. Installation and Setup Instructions](#3-installation-and-setup-instructions)
+- [4. Libraries](#4-libraries)
+
+## 1. General Information
+
+This repository contains source code for **Front End part of Scentronix Full-stack Assignment**.
+
+Check out requirements [here](https://gitlab.com/scentronix/assessments/web-interviews/-/tree/master/fullstack?ref_type=heads#front-end-part).
+
+## 2. Main Features
+
+- Recipe detail screen.
+- Initiate some other empty screens for navigating testing purpose.
+
+All screens were handled responsive layout and fetched data from a mock API.
+
+|                                                              |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![PC](./screenshots/screenshot-scentronix-assessment-pc.png) | ![SP](./screenshots/screenshot-scentronix-assessment-sp.png) |
+
+## 3. Installation and Setup Instructions
+
+- Clone the project repository into your local device and move into the project folder:
+
+```
+$ git clone git@github.com:ntbinh91/scentronix-assessment.git
+$ cd scentronix-assessment/front-end
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Install libraries:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+$ yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Launch local development server:
 
-## Learn More
+```
+$ yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+- Open a browser and access to [http://localhost:3000](http://localhost:3000) to access to development server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 4. Libraries
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [NextJS v15](https://nextjs.org/)
+- [React v19](https://react.dev/blog/2024/12/05/react-19)
+- [Material UI](https://mui.com/material-ui/)
