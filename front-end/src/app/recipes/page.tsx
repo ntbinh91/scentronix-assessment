@@ -13,9 +13,9 @@ import { Metadata } from 'next';
 import { APT_ENDPOINTS } from '@/api/apiEndpoint.constants';
 
 const BREADCRUMB_ITEMS: BreadcrumbItem[] = [
-  { label: 'Recipes', href: '/recipes' },
-  { label: 'Bread', href: '/recipes/bread' },
-  { label: 'Quick bread', href: '/recipes/bread/quick-bread' },
+  { label: 'Recipes', href: '' },
+  { label: 'Bread', href: '' },
+  { label: 'Quick bread', href: '' },
 ];
 
 export async function generateMetadata(): Promise<Metadata> {

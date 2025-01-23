@@ -19,7 +19,8 @@ Check out requirements [here](https://gitlab.com/scentronix/assessments/web-inte
 
 - Get Server Endpoint.
 
-![alt text](./screenshots/image.png)
+![API request](./screenshots/api-request.png)
+![Test result](./screenshots/test-result.png)
 
 ## 3. Installation and Setup Instructions
 
